@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://yeluo45.github.io/worldmonitor-design/
+      url: https://yeluo45.github.io/nodeskclaw-design/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,17 +41,17 @@ jobs:
         run: npm install -g pnpm
 
       - name: Install dependencies
-        working-directory: ./docs-site
         run: pnpm install
+        working-directory: ./docs-site
 
       - name: Build
-        working-directory: ./docs-site
         run: pnpm run build
+        working-directory: ./docs-site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs-site/.vitepress/dist
+          path: ./docs-site/.vitepress/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
