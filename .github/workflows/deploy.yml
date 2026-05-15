@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://yeluo45.github.io/worldmonitor-design/
+      url: https://yeluo45.github.io/nodeskclaw-design/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,10 +27,15 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install pnpm
         run: npm install -g pnpm
@@ -41,7 +46,7 @@ jobs:
 
       - name: Build
         working-directory: ./docs-site
-        run: pnpm run docs:build
+        run: pnpm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
