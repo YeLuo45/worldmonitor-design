@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://yeluo45.github.io/generic-agent-design/
+      url: https://yeluo45.github.io/worldmonitor-design/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
